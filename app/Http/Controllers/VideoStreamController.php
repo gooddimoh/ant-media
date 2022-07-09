@@ -23,7 +23,6 @@ class VideoStreamController extends Controller
         $http = 'https://sandbox.api.video';
         $secretkey = 'K5zDhiFPREf42b2RMOsRUd5H2rIujiPKgHeslupWUeU';
         $video = "video";
-
     }
 
     public function showvideostream()
@@ -140,7 +139,7 @@ class VideoStreamController extends Controller
             new \Symfony\Component\HttpClient\Psr18Client()
         );
 
-//        $client->videos()->get()
+        $client->videos()->get()
         $video = $client->videos()->create((new \ApiVideo\Client\Model\VideoCreationPayload())->setTitle("Maths video"));
 
 //        $existingSourceVideo = $client->videos()->create((new \ApiVideo\Client\Model\VideoCreationPayload())
