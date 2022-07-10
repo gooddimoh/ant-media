@@ -19,6 +19,10 @@
         </div>
     </div>
     <div class="container">
-
+        <div class="show-streams">
+            <div class="previue-name">
+                <p>previue-name</p>
+            </div>
+        </div>
     </div>
 @endsection

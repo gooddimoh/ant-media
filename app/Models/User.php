@@ -13,6 +13,7 @@ use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Psy\Util\Str;
 
 class User extends Model implements
     AuthenticatableContract,
@@ -54,8 +55,11 @@ class User extends Model implements
     ];
 
 
-    public function GetStreamsecretkey()
+    public function generatesecretkey()
     {
-        return "GetStreamsecretkey";
+        $secretkey = random_bytes(5);
+        $secretkey = bin2hex($secretkey);
+
+        return $secretkey;
     }
 }

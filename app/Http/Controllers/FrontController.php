@@ -21,7 +21,7 @@ class FrontController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function action_index()
     {
         return view('home');
     }
