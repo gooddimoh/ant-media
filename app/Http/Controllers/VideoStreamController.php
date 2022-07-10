@@ -22,13 +22,13 @@ class VideoStreamController extends Controller
 
     }
 
-    public function action_getvideo()
+    public function action_get_video()
     {
 
 
     }
 
-    public function action_showvideostream()
+    public function action_show_video_stream()
     {
         $name = "name";
         $previue = "previue";
@@ -37,33 +37,28 @@ class VideoStreamController extends Controller
         $user->secretkeygenerate();
     }
 
-    public function action_addvideostream()
+    public function action_add_video_stream()
     {
         $streamname = "streamname";
         $streamdescription = "streamdescription";
 
     }
 
-    public function action_showallstreams()
+    public function action_show_all_streams()
     {
         print_r("streams");
     }
 
-    public function action_createvideostream(Request $request)
+    public function action_create_videos_tream(Request $request)
     {
         $videoname = $request->json('videoname');
-        $request->get('name');
+
+        $videotitle = $request->get('videotitle');
         $request->get('name');
         $request->get('name');
 
 
-        $client = new \ApiVideo\Client\Client(
-            'https://ws.api.video',
-            'YOUR_API_KEY',
-            new \Symfony\Component\HttpClient\Psr18Client()
-        );
-
-        $video = $client->videos()->create((new \ApiVideo\Client\Model\VideoCreationPayload())->setTitle("Maths video"));
+        $this->client->videos()->create((new \ApiVideo\Client\Model\VideoCreationPayload())->setTitle("Maths video"));
 
         $existingSourceVideo = $client->videos()->create((new \ApiVideo\Client\Model\VideoCreationPayload())
             ->setTitle("Maths video")
@@ -88,7 +83,7 @@ class VideoStreamController extends Controller
 
     }
 
-    public function action_createlivestream()
+    public function action_create_live_stream()
     {
 
         $livestreamname = "livestreamname";
@@ -103,17 +98,11 @@ class VideoStreamController extends Controller
 
     }
 
-    public function action_listofcaptions(Request $request)
+    public function action_list_of_captions(Request $request)
     {
 
-        $apiKey = 'your API key here';
-        $apiVideoEndpoint = 'https://ws.api.video';
-
-        $httpClient = new \Symfony\Component\HttpClient\Psr18Client();
-
-//        $videoId = 'vi4k0jvEUuaTdRAEjQ4Prklg';
-
         $videoId = $request->get('videoId');
+        $videoId = 'vi4k0jvEUuaTdRAEjQ4Prklg';
 
         $captions = $this->client->captions()->list($videoId, array(
             'currentPage' => 2, // Choose the number of search results to return per page. Minimum value: 1)
@@ -122,16 +111,25 @@ class VideoStreamController extends Controller
 
     }
 
-    public function action_createvideostream2_show()
+    public function action_create_video_stream2_show()
     {
         if ('create') {
             $video = $this->client->videos()->create((new \ApiVideo\Client\Model\VideoCreationPayload())->setTitle("Maths video"));
         }
     }
 
-    public function action_videostreamcreate()
+    public function action_video_stream_create()
     {
         $this->client->videos()->create((new \ApiVideo\Client\Model\VideoCreationPayload())->setTitle("Maths video2"));
+
+    }
+
+    public function vardumpmodel2()
+    {
+        $userdto = new \UserDto();
+        $user = new User();
+
+        print_r(json_encode($user));
 
     }
 }

@@ -31,4 +31,5 @@ Route::get('/streams/createvideostream', [App\Http\Controllers\VideoStreamContro
 Route::get('/streams/show', [App\Http\Controllers\VideoStreamController::class, 'action_showallstreams'])->name('ShowAllStreams');
 Route::get('/video/stream/show', [App\Http\Controllers\VideoStreamController::class, 'action_showallstreams'])->name('showVideoStream');
 Route::get('/video/stream/hide', [App\Http\Controllers\VideoStreamController::class, 'action_addvideostream'])->name('AddVideoStream');
+Route::get('/vardumpmodel2', [App\Http\Controllers\VideoStreamController::class, 'vardumpmodel2'])->name('vardumpmodel2');
 
